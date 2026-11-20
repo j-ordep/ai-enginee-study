@@ -1,6 +1,6 @@
 # Tarefa atual — Primeiro contrato do AI Ticket Classifier
 
-**Status:** proposta para revisão. A implementação depende de autorização.
+**Status:** contrato simulado implementado e verificado localmente. Aceite pendente de revisão.
 
 ## Contexto e aceite
 
@@ -15,8 +15,8 @@ Exercitar o caminho completo de `POST /classify` com um simulador local de respo
 
 - Consulte a [arquitetura e o roadmap do classificador](docs/estudo/ai-ticket-classifier.md) e o [contexto de mentoria para agentes](docs/agente/contexto-aprendizado.md).
 - O formato dos campos vem do exemplo do projeto. Para a simulação, a proposta é usar `infrastructure` e `high` como valores de exemplo, com `reason` igual a `Resposta simulada para validar o contrato.`. A taxonomia e os critérios de negócio dependem de confirmação para a classificação real.
-- O projeto fica em `ai-ticket-classifier/`, com `app.py` e `requirements.txt`. O ponto de partida é o exercício `GET /`. A proposta é acrescentar a rota `POST /classify` com os modelos Pydantic e criar `tests/test_classify.py` com pytest e HTTPX.
-- Confirmar o formato e a resposta fixa antes de executar. A partir de `ai-ticket-classifier/`, iniciar a aplicação com `.\.venv\Scripts\python.exe -m uvicorn app:app`. Após preparar as dependências de teste, usar `.\.venv\Scripts\python.exe -m pytest`.
+- A rota e os modelos Pydantic ficam em `ai-ticket-classifier/app.py`. Os testes HTTP ficam em `tests/test_classify.py` dentro do projeto e usam pytest e HTTPX2, conforme o TestClient da versão instalada do Starlette.
+- A partir de `ai-ticket-classifier/`, iniciar a aplicação com `.\.venv\Scripts\python.exe -m uvicorn app:app`. Instalar as dependências de teste com `.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt` e rodar `.\.venv\Scripts\python.exe -m pytest`.
 
 ## Microentregas
 

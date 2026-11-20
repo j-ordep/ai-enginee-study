@@ -4,7 +4,7 @@ Este é um laboratório de Applied AI Engineering para quem já desenvolve APIs.
 
 ## Onde estamos
 
-O FastAPI já responde a `GET /`, o primeiro exercício do projeto. O próximo marco é entender e testar o contrato de `POST /classify` com uma resposta simulada. A partir daí, vamos integrar um LLM pré-treinado, medir o resultado com chamados rotulados e comparar com um classificador treinado com exemplos.
+O FastAPI responde a `GET /` e a `POST /classify`. A rota de classificação valida a entrada e devolve uma resposta fixa de simulação. O próximo marco é definir os critérios de triagem antes de integrar um LLM pré-treinado. Depois, vamos medir o resultado com chamados rotulados e comparar com um classificador treinado com exemplos.
 
 O caminho de estudo acompanha o projeto. Começa com Python, contratos e testes, passa por LLMs, dados e avaliação e chega a ML clássico e à preparação de um serviço para operação.
 
@@ -16,7 +16,7 @@ O caminho de estudo acompanha o projeto. Começa com Python, contratos e testes,
 | [Roadmap de AI Engineering](docs/estudo/roadmap-ai-engineering.md) | O que estudar e como demonstrar cada habilidade, a partir da experiência em backend. |
 | [Como estudar](docs/estudo/como-estudar.md) | O ritmo de mentoria, os exercícios e as fontes usadas para montar o método. |
 
-## Rodar o exercício atual
+## Rodar a API localmente
 
 Em um PowerShell na raiz do repositório, rode os comandos abaixo. Se já tiver a `.venv` do projeto com as dependências instaladas, execute só o `cd` e a última linha.
 
@@ -27,7 +27,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m uvicorn app:app --reload
 ```
 
-Abra [a rota inicial](http://127.0.0.1:8000/) para conferir a resposta ou consulte [a documentação interativa](http://127.0.0.1:8000/docs).
+Abra [a documentação interativa](http://127.0.0.1:8000/docs) para experimentar `POST /classify`.
 
 ## Para agentes de IA
 

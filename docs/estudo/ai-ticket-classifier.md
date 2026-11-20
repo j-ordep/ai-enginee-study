@@ -4,7 +4,7 @@
 
 Uma pessoa ou um sistema de suporte recebe uma descrição em linguagem natural e precisa triá-la. A API vai sugerir uma **categoria**, que ajuda a encaminhar o chamado, e uma **prioridade**, que depende do impacto do problema. A resposta inclui uma justificativa curta. A proposta inicial é apoiar a triagem usando chamados sintéticos.
 
-**Hoje existe** um exercício funcional de FastAPI, com `GET /`. A rota `POST /classify` está planejada. O escopo inicial termina na resposta JSON. Interface de usuário, armazenamento de chamados e integração com plataformas de suporte ficam para uma necessidade posterior.
+**Hoje existem** o exercício `GET /` e a rota `POST /classify` com resposta simulada. O escopo inicial termina na resposta JSON. Interface de usuário, armazenamento de chamados e integração com plataformas de suporte ficam para uma necessidade posterior.
 
 ## O caminho da requisição
 
@@ -17,7 +17,7 @@ flowchart LR
     E --> F["Cliente recebe category, priority e reason"]
 ```
 
-1. **Entrada.** O FastAPI encaminha o corpo da requisição ao modelo de entrada do Pydantic. A proposta é aceitar texto com conteúdo e responder com `422` quando o campo obrigatório for inválido.
+1. **Entrada.** O FastAPI encaminha o corpo da requisição ao modelo de entrada do Pydantic. A rota aceita texto com conteúdo e responde com `422` quando o campo obrigatório é inválido.
 2. **Decisão.** Na primeira versão, uma função Python devolve uma resposta fixa identificada como simulação. Na integração real, um LLM recebe o chamado e os critérios de triagem. Mais adiante, um classificador supervisionado usa padrões aprendidos a partir de chamados rotulados.
 3. **Saída.** A aplicação verifica se os campos e valores têm o formato combinado e devolve o JSON. Na integração, falhas do provedor, como timeout ou saída inválida, ganham tratamento próprio. Um resultado no formato esperado ainda pode atribuir a prioridade errada. [Corpo de requisição no FastAPI](https://fastapi.tiangolo.com/tutorial/body/) · [Modelo de resposta](https://fastapi.tiangolo.com/tutorial/response-model/)
 
@@ -41,4 +41,4 @@ Os testes do endpoint verificam a entrada, a resposta e os erros observáveis. A
 
 O primeiro conjunto pode ser usado para explorar critérios e melhorar o prompt. Para sustentar a comparação final, vamos reservar dados independentes do treinamento e dos ajustes. A quantidade de exemplos para treinar o classificador clássico será decidida com base na cobertura das classes e nos resultados. [Como evitar vazamento de dados no scikit-learn](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage)
 
-**Para começar agora**, percorra o diagrama com um chamado de exemplo e diga em qual etapa uma mensagem sem conteúdo deve parar. Depois disso, o primeiro trecho de implementação é o modelo de entrada. A atividade atual está no [task.md](../../task.md).
+**Para praticar agora**, percorra o diagrama com um chamado de exemplo. Compare uma requisição com texto e outra com apenas espaços no campo `message` em `/docs`. Explique em qual etapa a segunda para. A atividade atual está no [task.md](../../task.md).
