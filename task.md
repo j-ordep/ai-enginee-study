@@ -13,10 +13,10 @@ Exercitar o caminho completo de `POST /classify` com um simulador local de respo
 
 ## Regras, contratos e impacto
 
-- Referência educacional em [docs/contexto-aprendizado-ai-engineer.md](docs/contexto-aprendizado-ai-engineer.md).
+- Consulte a [arquitetura e o roadmap do classificador](docs/estudo/ai-ticket-classifier.md) e o [contexto de mentoria para agentes](docs/agente/contexto-aprendizado.md).
 - O formato dos campos vem do exemplo do projeto. Para a simulação, a proposta é usar `infrastructure` e `high` como valores de exemplo, com `reason` igual a `Resposta simulada para validar o contrato.`. A taxonomia e os critérios de negócio dependem de confirmação para a classificação real.
 - O projeto fica em `ai-ticket-classifier/`, com `app.py` e `requirements.txt`. O ponto de partida é o exercício `GET /`. A proposta é acrescentar a rota `POST /classify` com os modelos Pydantic e criar `tests/test_classify.py` com pytest e HTTPX.
-- Confirmar o formato e a resposta fixa antes de executar. A partir de `ai-ticket-classifier/`, iniciar a aplicação com `..\.venv\Scripts\python.exe -m uvicorn app:app`. Após preparar as dependências de teste, usar `..\.venv\Scripts\python.exe -m pytest`.
+- Confirmar o formato e a resposta fixa antes de executar. A partir de `ai-ticket-classifier/`, iniciar a aplicação com `.\.venv\Scripts\python.exe -m uvicorn app:app`. Após preparar as dependências de teste, usar `.\.venv\Scripts\python.exe -m pytest`.
 
 ## Microentregas
 
